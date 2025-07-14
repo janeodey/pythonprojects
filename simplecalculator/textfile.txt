@@ -1,0 +1,47 @@
+🧠 FUNCTION OVERVIEW
+This is a console-based calculator that:
+
+Runs in a loop
+
+Asks for an operator and two numbers
+
+Performs the operation
+
+Prints the result
+
+Repeats until the user types "no" or "n"
+
++ (addition)
+
+- (subtraction)
+
+* (multiplication)
+
+/ (division)
+
+** (exponentiation)
+
+% (modulo)
+
+// (floor division)
+-----------------------------------
+Features of the calculator app
+💡 Features:
+Loops until a valid operation is completed
+
+Handles invalid numbers and operators gracefully
+
+Prevents crashes from division by zero
+
+Clean user flow
+
+✅ Summary of Concepts Used
+
+| Concept      | Purpose                                  |
+| ------------ | ---------------------------------------- |
+| `while True` | Infinite loop for repeated calculations  |
+| `input()`    | Get user input                           |
+| `match-case` | Cleanly handle multiple operator choices |
+| `continue`   | Skip invalid operations and restart loop |
+| `round()`    | Format result to 3 decimal places        |
+| `break`      | Exit the loop when user is done          |
