@@ -1,4 +1,5 @@
 # concession stand program
+from collections import Counter
 
 menu = {
     "pizza": 3.00,
@@ -26,20 +27,47 @@ total = 0
 
 print("---------------MENU-----------------")
 for key, value in menu.items():
-    print(f"{key:10}: ${value:.2f}")
+    print(f"{key.title():10}: ${value:.2f}")
 
 print("-------------------------")
 
+# order input loop
 while True:
     food = input("Enter an item (Q to quit): ").lower()
     if food == "q":
         break
-    elif menu.get(food) is not None:
+    elif food in menu:
         cart.append(food)
+        print(f"✅{food.title()} added to your cart.")
+    else:
+        print("Item not on the menu, try again.")
 
-print("---------------YOUR ORDER---------------------")
-for food in cart:
-    total += menu.get(food)
+# order summary
+print("\n---------------YOUR ORDER---------------------")
+if cart:
+    order_summary = Counter(cart)
 
-print()
-print(f"total is: {total:.2f}")
+    for item, qty in order_summary.items():
+        item_total = qty * menu[item]
+        print(
+            f"{item.title():10} X {qty:<3} @ ${menu[item]:.2f} each = ${item_total:.2f}")
+        total += item_total
+
+    print(f"🧾 Total: ${total:.2f}")
+
+    # simulate payment
+    while True:
+        try:
+            payment = float(input("\n💳 Enter payment amount: $"))
+            if payment < total:
+                print("❌Not enough! Please enter at least the total amount.")
+            else:
+                change = payment - total
+                print(f"✅Payment accepted. Your change is: ${change:.2f}")
+                print("Thank you for your order!")
+                break
+        except ValueError:
+            print("❌Invalid input, please enter a valid amount.")
+
+else:
+    print("🛒 Your cart is empty")
