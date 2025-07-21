@@ -11,34 +11,25 @@ menu = {
     "soda": 3.00,
     "lemonade": 4.25
 }
+discount_items = {"popcorn", "soda"}  # buy 2 get 1 free
 cart = []
-total = 0
+total = 0.0
 
-# calcilate the total
-# total = []
-
-# for key, value in menu.items():
-#     total += value
-# print(f"The total item is: {total}")
-
-# for key, value in menu.items():
-#     total.append(value)
-# print(sum(total))
-
+# display the menu
 print("---------------MENU-----------------")
 for key, value in menu.items():
     print(f"{key.title():10}: ${value:.2f}")
 
 print("-------------------------")
 
-# order input loop
+# user input loop
 while True:
-    food = input("Enter an item (Q to quit): ").lower()
+    food = input("\nEnter an item (Q to quit): ").lower()
     if food == "q":
         break
     elif food in menu:
         cart.append(food)
-        print(f"✅{food.title()} added to your cart.")
+        print(f"✅ {food.title()} added to your cart.")
     else:
         print("Item not on the menu, try again.")
 
@@ -48,9 +39,20 @@ if cart:
     order_summary = Counter(cart)
 
     for item, qty in order_summary.items():
-        item_total = qty * menu[item]
-        print(
-            f"{item.title():10} X {qty:<3} @ ${menu[item]:.2f} each = ${item_total:.2f}")
+        # price_per_item = qty * menu[item]
+        price_per_item = menu[item]
+
+        # apply "buy 2 get 1 free" discount
+        if item in discount_items:
+            free_items = qty // 3
+            charge_qty = qty - free_items
+            print(
+                f"{item.title():10} x {qty:<3} (includes {free_items} free) @ ${price_per_item:.2f}")
+        else:
+            charge_qty = qty
+            print(f"{item.title():10} x {qty:<3} @ {price_per_item:.2f}")
+
+        item_total = charge_qty * price_per_item
         total += item_total
 
     print(f"🧾 Total: ${total:.2f}")
@@ -60,14 +62,14 @@ if cart:
         try:
             payment = float(input("\n💳 Enter payment amount: $"))
             if payment < total:
-                print("❌Not enough! Please enter at least the total amount.")
+                print("❌ Not enough! Please enter at least the total amount.")
             else:
                 change = payment - total
-                print(f"✅Payment accepted. Your change is: ${change:.2f}")
+                print(f"✅ Payment accepted. Your change is: ${change:.2f}")
                 print("Thank you for your order!")
                 break
         except ValueError:
-            print("❌Invalid input, please enter a valid amount.")
+            print("❌ Invalid input, please enter a valid amount.")
 
 else:
     print("🛒 Your cart is empty")
