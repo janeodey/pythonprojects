@@ -13,6 +13,9 @@ is_running = True
 while True:
     guess = input(
         f"Please select a number between {lowest_num} and {highest_num} (please x to cancel): ")
+    if guess.lower() == "x":
+        print("Thank you for playing with us!")
+        break
 
     if guess.isdigit():
         guess = int(guess)
