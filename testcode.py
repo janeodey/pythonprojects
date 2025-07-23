@@ -275,3 +275,37 @@
 # for key, value in menu.items():
 #     total.append(value)
 # print(sum(total))
+
+
+# import random
+
+# x = random.random()
+# x = random.randint(1, 10)
+# x = random.randrange(20, 30, 2)
+# x = random.uniform(40, 50)
+# x = ["Jane", "Mike", "Divine"]
+
+# print(x)
+# # print(f"{x:.2f}")
+
+# y = random.shuffle(x)
+# print(f"Shuffle value: {x}")
+# print(random.getstate())
+
+# print(random.random())
+# state = random.getstate()
+
+# print(random.random())
+# print(random.setstate(state))
+# print(random.random())
+
+from datetime import date
+
+mindate = date.min
+maxdate = date.max
+
+my_date = date(2023, 12, 3)
+my_date = date(1996, 12, 9)
+
+print(f"The minimum supported date is: {mindate}")
+print(my_date)
