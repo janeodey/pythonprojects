@@ -11,9 +11,9 @@ while playing:
     player = input(
         "Enter a choice (rock, paper, scissors): ").lower()
 
-    if player == "q":
-        print("Thanks")
-        break
+    # if player == "q":
+    #     print("Thanks")
+    #     break
 
     if player not in options:
         continue
@@ -31,7 +31,7 @@ while playing:
 
     print(f"Player: {player} \ncomputer: {computer}")
 
-    # if not input("Play again? (y/n): ").lower() == "y":
-    #     playing = False
+    if not input("Play again? (y/n): ").lower() == "y":
+        playing = False
 
 print("Thanks for playing")
