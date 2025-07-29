@@ -305,7 +305,6 @@ mindate = date.min
 maxdate = date.max
 
 my_date = date(2023, 12, 3)
-my_date = date(1996, 12, 9)
 
 print(f"The minimum supported date is: {mindate}")
 print(my_date)
