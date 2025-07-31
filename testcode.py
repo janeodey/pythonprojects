@@ -277,13 +277,13 @@
 # print(sum(total))
 
 
-# import random
+import random
 
-# x = random.random()
-# x = random.randint(1, 10)
-# x = random.randrange(20, 30, 2)
-# x = random.uniform(40, 50)
-# x = ["Jane", "Mike", "Divine"]
+x = random.random()
+x = random.randint(1, 10)
+x = random.randrange(20, 30, 2)
+x = random.uniform(40, 50)
+x = ["Jane", "Mike", "Divine"]
 
 # print(x)
 # # print(f"{x:.2f}")
@@ -299,12 +299,12 @@
 # print(random.setstate(state))
 # print(random.random())
 
-from datetime import date
+# from datetime import date
 
-mindate = date.min
-maxdate = date.max
+# mindate = date.min
+# maxdate = date.max
 
-my_date = date(2023, 12, 3)
+# my_date = date(2023, 12, 3)
 
-print(f"The minimum supported date is: {mindate}")
-print(my_date)
+# print(f"The minimum supported date is: {mindate}")
+# print(my_date)
